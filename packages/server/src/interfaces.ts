@@ -38,6 +38,7 @@ export interface LegacyServiceCreator {
 export interface Service {
   port: number;
   protocol: string;
+  domain?: string;
 }
 
 export interface ServiceOptions {

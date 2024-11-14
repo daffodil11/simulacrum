@@ -103,7 +103,7 @@ export function createSimulation (slice: Slice<SimulationState>, simulators: Rec
         for (let { name, create } of servers) {
           let service: Service = yield create(slice, serviceOptions[name] ?? {});
 
-          services.push({ name, url: `${service.protocol}://localhost:${service.port}` });
+          services.push({ name, url: `${service.protocol}://${service.domain || 'localhost'}:${service.port}` });
         }
 
         let { scenarios, effects } = behaviors;
